@@ -1,0 +1,191 @@
+:root {
+    --primary-color: #FFC107;
+    --secondary-color: #FFD54F;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.gradient-bg {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+.hero-pattern {
+    background-color: #1a1a1a;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23FFC107' fill-opacity='0.1'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.feature-card {
+    transition: all 0.3s ease;
+    border: 1px solid #333333;
+    background-color: #1a1a1a;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(255, 193, 7, 0.1), 0 10px 10px -5px rgba(255, 193, 7, 0.04);
+    border-color: var(--primary-color);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #000000;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+}
+
+.section-title {
+    position: relative;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    color: #ffffff;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+/* 애니메이션 클래스 */
+.fade-up {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in {
+    opacity: 0;
+    transition: all 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+}
+
+.scale-up {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.8s ease-out;
+}
+
+.scale-up.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* 현대적인 디자인 요소 */
+.glass-effect {
+    background: rgba(26, 26, 26, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 193, 7, 0.1);
+}
+
+.gradient-text {
+    background: linear-gradient(45deg, var(--primary-color), #FF9800);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.feature-card {
+    background: linear-gradient(145deg, #1a1a1a, #222);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+}
+
+.hero-pattern {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)),
+                radial-gradient(circle at 50% 50%, rgba(255, 193, 7, 0.1) 0%, transparent 50%);
+}
+
+/* 스크롤바 커스텀 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+/* 텍스트 크기 관련 유틸리티 클래스 */
+.text-2xl {
+    font-size: 1.75rem !important;
+    line-height: 2.25rem !important;
+}
+
+.text-3xl {
+    font-size: 2rem !important;
+    line-height: 2.5rem !important;
+}
+
+.text-4xl {
+    font-size: 2.5rem !important;
+    line-height: 3rem !important;
+}
+
+.text-5xl {
+    font-size: 3rem !important;
+    line-height: 3.5rem !important;
+}
+
+.text-6xl {
+    font-size: 3.75rem !important;
+    line-height: 4rem !important;
+}
+
+/* 본문 텍스트 기본 크기 증가 */
+p {
+    font-size: 1.25rem !important;
+    line-height: 1.75rem !important;
+}
+
+/* 섹션 제목 크기 증가 */
+.section-title {
+    font-size: 3.5rem !important;
+    line-height: 4rem !important;
+    margin-bottom: 3rem;
+}
+
+/* 카드 내부 텍스트 크기 증가 */
+.feature-card h3 {
+    font-size: 2rem !important;
+    line-height: 2.5rem !important;
+    margin-bottom: 1.5rem;
+}
+
+.feature-card p {
+    font-size: 1.25rem !important;
+    line-height: 1.75rem !important;
+}
+
+/* 리스트 아이템 텍스트 크기 증가 */
+.feature-card li {
+    font-size: 1.25rem !important;
+    line-height: 1.75rem !important;
+    margin-bottom: 1rem;
+} 
