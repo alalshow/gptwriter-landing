@@ -108,23 +108,29 @@
         <div class="container mx-auto px-4">
             <div class="max-w-5xl mx-auto text-center">
                 <h2 class="text-4xl font-bold gradient-text mb-8 fade-up">
-                    지금 이 순간에도
+                    지금 이 순간도
                 </h2>
                 <p class="text-2xl text-yellow-100 mb-12 fade-up">
-                    <span class="typing-text">누군가는 AI로 자동화된 수익을 만들어내고 있습니다</span>
+                    <span class="typing-text">누군가는 AI로<br>자동화된 수익을<br>만들어내고 있습니다</span>
                 </p>
                 
                 <div class="grid md:grid-cols-3 gap-8 mb-12">
                     <div class="glass-effect p-6 rounded-lg fade-up">
-                        <div class="text-4xl font-bold text-yellow-200 mb-2 counter" data-target="2000">0</div>
-                        <p class="text-gray-400">오늘 생성된 포스팅</p>
+                        <div class="text-4xl font-bold text-yellow-200 mb-2">
+                            <span class="counter" data-type="posts" data-base-value="500">0</span>
+                        </div>
+                        <p class="text-gray-400">생성된 포스팅</p>
                     </div>
                     <div class="glass-effect p-6 rounded-lg fade-up">
-                        <div class="text-4xl font-bold text-yellow-200 mb-2 counter" data-target="526789">0</div>
+                        <div class="text-4xl font-bold text-yellow-200 mb-2">
+                            ₩<span class="counter" data-type="revenue" data-base-value="2000000">0</span>
+                        </div>
                         <p class="text-gray-400">총 수익 (원)</p>
                     </div>
                     <div class="glass-effect p-6 rounded-lg fade-up">
-                        <div class="text-4xl font-bold text-yellow-200 mb-2 counter" data-target="42">0</div>
+                        <div class="text-4xl font-bold text-yellow-200 mb-2">
+                            <span class="counter" data-type="users" data-base-value="5">0</span>
+                        </div>
                         <p class="text-gray-400">현재 활성 사용자</p>
                     </div>
                 </div>
@@ -170,8 +176,6 @@
             </div>
         </div>
     </section>
-
-
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">

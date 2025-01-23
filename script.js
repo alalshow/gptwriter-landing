@@ -3,11 +3,12 @@ const cardData = {
     features: [
         {
             icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2',
-            title: '키워드 관리',
+            title: '최적화 키워드 추출',
             subtitle: '실시간 인기 검색어 수집 및 분석',
             items: [
                 '구글/다음/줌 실시간 검색어 자동 수집',
                 'AI 기반 핵심 키워드 추출',
+                '키워드 PC/모바일 조회수 조회',
                 '키워드 경쟁강도 분석'
             ]
         },
@@ -17,8 +18,9 @@ const cardData = {
             subtitle: 'AI 기반 컨텐츠 자동 생성',
             items: [
                 'GPT/Gemini 기반 고품질 컨텐츠 생성',
-                '이미지 자동 생성 및 최적화',
-                '예약 발행 및 스케줄링'
+                '즉시발행, 예약발행, 임시저장',
+                '프롬프트 커스터마이징',
+                '내부/외부 링크 설정'
             ]
         },
         {
@@ -28,7 +30,8 @@ const cardData = {
             items: [
                 'Rank Math 커스텀 플러그인 무료 제공',
                 '메타 데이터 자동 최적화',
-                '구글/네이버 자동 색인'
+                '구글/네이버 자동 색인',
+                '포커스 키워드 적절 배치'
             ]
         },
         {
@@ -37,8 +40,26 @@ const cardData = {
             subtitle: '고품질 이미지 자동화',
             items: [
                 'Pixabay 무제한 이미지 제공',
-                '이미지 자동 최적화',
+                '이미지 배치 최적화',
                 '썸네일 자동 생성'
+            ]
+        },
+        {
+            icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+            title: '빠른 처리 속도',
+            subtitle: '평균 1분 이내 컨텐츠 완성',
+            items: [
+                '실시간 발행 자동화',
+                '발행 대기시간 없음'
+            ]
+        },
+        {
+            icon: 'M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4',
+            title: '간편한 설정',
+            subtitle: '직관적인 UI와 실시간 API 테스트',
+            items: [
+                'API 연동 실시간 테스트',
+                '설정 저장',
             ]
         }
     ],
@@ -49,10 +70,10 @@ const cardData = {
             discountRate: 25,
             period: "1년",
             features: [
-                "키워드 관리 및 분석",
+                "키워드 조회 및 분석",
+                "무제한 포스팅",
                 "AI 컨텐츠 자동 생성",
                 "이미지 자동화",
-                "하루 20개 포스팅"
             ],
             highlight: "합리적인 가격",
             recommended: false
@@ -64,10 +85,12 @@ const cardData = {
             period: "평생",
             features: [
                 "베이직 패키지의 모든 기능",
+                "키워드 조회 및 분석",
                 "무제한 포스팅",
+                "AI 컨텐츠 자동 생성",
+                "이미지 자동화",
                 "애드센스승인 기능",
                 "Rank Math 커스텀 플러그인",
-                "이미지 자동화",
             ],
             highlight: "합리적인 가격",
             recommended: true
@@ -79,8 +102,8 @@ const cardData = {
             period: "평생",
             features: [
                 "프리미엄 패키지의 모든 기능",
-                "GPT기반 네이버블로그 발행",
-                "GPT기반 티스토리 발행",
+                "GPT 기반 네이버블로그 발행",
+                "GPT 기반 티스토리 발행",
                 "커스텀 AI 템플릿",
             ],
             highlight: "애드센스 수익화의 끝판왕",
@@ -97,6 +120,10 @@ function calculateDiscountedPrice(originalPrice, discountRate) {
 function formatPrice(price) {
     return new Intl.NumberFormat('ko-KR').format(price);
 }
+
+const formatNumber = (number) => {
+    return new Intl.NumberFormat('ko-KR').format(number);
+};
 
 // 스크롤 애니메이션 설정
 document.addEventListener('DOMContentLoaded', function() {
@@ -244,17 +271,70 @@ document.addEventListener('DOMContentLoaded', function() {
     // 카운터 애니메이션
     const counters = document.querySelectorAll('.counter');
     
+    const getRandomInRange = (min, max) => {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    };
+
+    const calculateTimeBasedValue = (type, baseValue) => {
+        const now = new Date();
+        const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        const hoursPassedToday = (now - startOfDay) / (1000 * 60 * 60);
+        
+        let increment = 0;
+        switch(type) {
+            case 'posts':
+                // 시간당 1~5개 증가
+                increment = Math.floor(hoursPassedToday * getRandomInRange(1, 5));
+                break;
+            case 'revenue':
+                // 시간당 10~2000원 증가
+                increment = Math.floor(hoursPassedToday * getRandomInRange(10, 2000));
+                break;
+            case 'users':
+                // 하루에 1~2명 증가
+                increment = Math.floor((hoursPassedToday / 24) * getRandomInRange(1, 2));
+                break;
+        }
+        
+        return baseValue + increment;
+    };
+
     const animateCounter = (counter) => {
-        const target = parseInt(counter.getAttribute('data-target'));
-        const count = parseInt(counter.innerText);
-        const increment = target / 200;
+        const type = counter.getAttribute('data-type');
+        const baseValue = parseInt(counter.getAttribute('data-base-value') || '0');
+        const target = calculateTimeBasedValue(type, baseValue);
+        const count = parseInt(counter.innerText.replace(/,/g, ''));
+        
+        // 애니메이션 속도 조절
+        let increment;
+        if (type === 'revenue') {
+            // 수익은 더 천천히 증가
+            increment = target / 500;
+        } else {
+            // 다른 카운터는 기존 속도
+            increment = target / 200;
+        }
 
         if (count < target) {
-            counter.innerText = Math.ceil(count + increment);
-            setTimeout(() => animateCounter(counter), 1);
+            // 수익의 경우 콤마 포맷팅 적용
+            if (type === 'revenue') {
+                counter.innerText = formatNumber(Math.ceil(count + increment));
+            } else {
+                counter.innerText = Math.ceil(count + increment);
+            }
+            // 애니메이션 프레임 간격 증가 (더 천천히)
+            setTimeout(() => animateCounter(counter), type === 'revenue' ? 30 : 1);
         } else {
-            counter.innerText = target;
+            // 최종값에도 수익은 콤마 포맷팅 적용
+            if (type === 'revenue') {
+                counter.innerText = formatNumber(target);
+            } else {
+                counter.innerText = target;
+            }
         }
+        
+        // 매 시간마다 값 업데이트
+        setTimeout(() => animateCounter(counter), 60 * 60 * 1000);
     };
 
     const observerCallback = (entries, observer) => {
