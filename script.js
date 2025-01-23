@@ -20,7 +20,8 @@ const cardData = {
                 'GPT/Gemini 기반 고품질 컨텐츠 생성',
                 '즉시발행, 예약발행, 임시저장',
                 '프롬프트 커스터마이징',
-                '내부/외부 링크 설정'
+                '내부/외부 링크 설정',
+                '본문저장'
             ]
         },
         {
@@ -66,11 +67,11 @@ const cardData = {
     products: [
         {
             name: "베이직 패키지",
-            originalPrice: 500000,
+            originalPrice: 660000,
             discountRate: 25,
             period: "1년",
             features: [
-                "키워드 조회 및 분석",
+                "키워드 조회",
                 "무제한 포스팅",
                 "AI 컨텐츠 자동 생성",
                 "이미지 자동화",
@@ -80,19 +81,20 @@ const cardData = {
         },
         {
             name: "프리미엄 패키지",
-            originalPrice: 1100000,
+            originalPrice: 1140000,
             discountRate: 30,
             period: "평생",
             features: [
                 "베이직 패키지의 모든 기능",
-                "키워드 조회 및 분석",
+                "키워드 조회",
+                "키워드 분석",
                 "무제한 포스팅",
                 "AI 컨텐츠 자동 생성",
                 "이미지 자동화",
-                "애드센스승인 기능",
+                "애드센스 승인",
                 "Rank Math 커스텀 플러그인",
             ],
-            highlight: "합리적인 가격",
+            highlight: "프리미엄 콘텐츠",
             recommended: true
         },
         {
@@ -271,70 +273,35 @@ document.addEventListener('DOMContentLoaded', function() {
     // 카운터 애니메이션
     const counters = document.querySelectorAll('.counter');
     
-    const getRandomInRange = (min, max) => {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    };
-
-    const calculateTimeBasedValue = (type, baseValue) => {
-        const now = new Date();
-        const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-        const hoursPassedToday = (now - startOfDay) / (1000 * 60 * 60);
-        
-        let increment = 0;
-        switch(type) {
-            case 'posts':
-                // 시간당 1~5개 증가
-                increment = Math.floor(hoursPassedToday * getRandomInRange(1, 5));
-                break;
-            case 'revenue':
-                // 시간당 10~2000원 증가
-                increment = Math.floor(hoursPassedToday * getRandomInRange(10, 2000));
-                break;
-            case 'users':
-                // 하루에 1~2명 증가
-                increment = Math.floor((hoursPassedToday / 24) * getRandomInRange(1, 2));
-                break;
-        }
-        
-        return baseValue + increment;
-    };
-
     const animateCounter = (counter) => {
         const type = counter.getAttribute('data-type');
         const baseValue = parseInt(counter.getAttribute('data-base-value') || '0');
-        const target = calculateTimeBasedValue(type, baseValue);
         const count = parseInt(counter.innerText.replace(/,/g, ''));
         
-        // 애니메이션 속도 조절
-        let increment;
-        if (type === 'revenue') {
-            // 수익은 더 천천히 증가
-            increment = target / 500;
-        } else {
-            // 다른 카운터는 기존 속도
-            increment = target / 200;
-        }
+        const duration = 2000; // 2초 동안 애니메이션
+        const frames = 60;
+        const increment = (baseValue - count) / frames;
 
-        if (count < target) {
-            // 수익의 경우 콤마 포맷팅 적용
-            if (type === 'revenue') {
-                counter.innerText = formatNumber(Math.ceil(count + increment));
+        let currentCount = count;
+        const updateCounter = () => {
+            currentCount += increment;
+            if (currentCount <= baseValue) {
+                if (type === 'revenue') {
+                    counter.innerText = formatNumber(Math.floor(currentCount));
+                } else {
+                    counter.innerText = Math.floor(currentCount);
+                }
+                requestAnimationFrame(updateCounter);
             } else {
-                counter.innerText = Math.ceil(count + increment);
+                if (type === 'revenue') {
+                    counter.innerText = formatNumber(baseValue);
+                } else {
+                    counter.innerText = baseValue;
+                }
             }
-            // 애니메이션 프레임 간격 증가 (더 천천히)
-            setTimeout(() => animateCounter(counter), type === 'revenue' ? 30 : 1);
-        } else {
-            // 최종값에도 수익은 콤마 포맷팅 적용
-            if (type === 'revenue') {
-                counter.innerText = formatNumber(target);
-            } else {
-                counter.innerText = target;
-            }
-        }
-        
-        // 매 시간마다 값 업데이트
-        setTimeout(() => animateCounter(counter), 60 * 60 * 1000);
+        };
+
+        requestAnimationFrame(updateCounter);
     };
 
     const observerCallback = (entries, observer) => {
