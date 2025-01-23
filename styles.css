@@ -14,33 +14,92 @@ body {
 }
 
 .hero-pattern {
-    background-color: #1a1a1a;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23FFC107' fill-opacity='0.1'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(183, 217, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255, 223, 167, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 60% 20%, rgba(255, 182, 193, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 30% 80%, rgba(176, 224, 230, 0.05) 0%, transparent 40%),
+        linear-gradient(135deg, #0f1117 0%, #131b2e 100%);
+    position: relative;
+    animation: gradientMove 15s ease-in-out infinite alternate;
+}
+
+.hero-pattern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.828-1.415 1.415L51.8 0h2.827zM5.373 0l-.83.828L5.96 2.243 8.2 0H5.374zM48.97 0l3.657 3.657-1.414 1.414L46.143 0h2.828zM11.03 0L7.372 3.657 8.787 5.07 13.857 0H11.03zm32.284 0L49.8 6.485 48.384 7.9l-7.9-7.9h2.83zM16.686 0L10.2 6.485 11.616 7.9l7.9-7.9h-2.83zM22.344 0L13.858 8.485 15.272 9.9l7.9-7.9h-.828zm5.656 0L19.515 8.485 17.343 10.657 28 0h-2.83zM32.656 0L26.172 6.485 24 8.657 34.657 0h-2zm5.657 0L30.828 7.485 28.657 9.657 39.314 0h-2.83zm5.657 0l-7.485 7.485-2.172 2.172L39.314 0h2.83zm5.657 0l-7.485 7.485-2.172 2.172L44.97 0h2.83zm5.657 0l-7.485 7.485-2.172 2.172L50.627 0h2.83zm5.657 0l-7.485 7.485-2.172 2.172L56.284 0h2.83z' fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+    opacity: 0.2;
+}
+
+#features {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+#price {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+#contact {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
 }
 
 .feature-card {
-    transition: all 0.3s ease;
+    transition: all 0.3s ease-in-out;
     border: 1px solid #333333;
     background-color: #1a1a1a;
 }
 
 .feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgba(255, 193, 7, 0.1), 0 10px 10px -5px rgba(255, 193, 7, 0.04);
-    border-color: var(--primary-color);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.feature-card:hover h3 {
+    transform: scale(1.1);
+    color: var(--primary-color);
+}
+
+.feature-card h3 {
+    transition: all 0.3s ease-in-out;
 }
 
 .btn-primary {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
     background-color: var(--primary-color);
     color: #000000;
     padding: 0.75rem 1.5rem;
     border-radius: 0.5rem;
     font-weight: 600;
-    transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
-    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease-out, height 0.6s ease-out;
+}
+
+.btn-primary:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .section-title {
@@ -64,58 +123,66 @@ body {
 /* 애니메이션 클래스 */
 .fade-up {
     opacity: 0;
-    transform: translateY(60px);
-    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    visibility: hidden;
 }
 
 .fade-up.visible {
     opacity: 1;
     transform: translateY(0);
+    visibility: visible;
 }
 
 .fade-in {
     opacity: 0;
     transition: all 0.8s ease-out;
+    visibility: hidden;
 }
 
 .fade-in.visible {
     opacity: 1;
+    visibility: visible;
 }
 
 .scale-up {
     opacity: 0;
     transform: scale(0.95);
     transition: all 0.8s ease-out;
+    visibility: hidden;
 }
 
 .scale-up.visible {
     opacity: 1;
     transform: scale(1);
+    visibility: visible;
 }
 
 /* 현대적인 디자인 요소 */
 .glass-effect {
-    background: rgba(26, 26, 26, 0.7);
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 193, 7, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.glass-effect:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
 }
 
 .gradient-text {
-    background: linear-gradient(45deg, var(--primary-color), #FF9800);
+    background: linear-gradient(45deg, #FFC107, #FFD54F, #FFE082);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    animation: gradientFlow 8s ease infinite;
+    background-size: 200% 200%;
 }
 
-.feature-card {
-    background: linear-gradient(145deg, #1a1a1a, #222);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
-}
-
-.hero-pattern {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)),
-                radial-gradient(circle at 50% 50%, rgba(255, 193, 7, 0.1) 0%, transparent 50%);
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* 스크롤바 커스텀 */
@@ -188,4 +255,217 @@ p {
     font-size: 1.25rem !important;
     line-height: 1.75rem !important;
     margin-bottom: 1rem;
+}
+
+/* 텍스트 호버 효과 */
+.hover-effect {
+    transition: all 0.3s ease;
+}
+
+.hover-effect:hover {
+    transform: scale(1.1);
+    color: var(--primary-color);
+}
+
+/* 섹션 간격 증가 */
+section {
+    padding: 10rem 0 !important;
+}
+
+/* 텍스트 크기 관련 유틸리티 클래스 */
+.text-2xl {
+    font-size: 1.75rem !important;
+    line-height: 2.25rem !important;
+}
+
+.text-3xl {
+    font-size: 2rem !important;
+    line-height: 2.5rem !important;
+}
+
+.text-4xl {
+    font-size: 2.5rem !important;
+    line-height: 3rem !important;
+}
+
+.text-5xl {
+    font-size: 3rem !important;
+    line-height: 3.5rem !important;
+}
+
+.text-6xl {
+    font-size: 3.75rem !important;
+    line-height: 4rem !important;
+}
+
+/* 본문 텍스트 기본 크기 증가 */
+p {
+    font-size: 1.25rem !important;
+    line-height: 1.75rem !important;
+}
+
+/* 섹션 제목 크기 증가 */
+.section-title {
+    font-size: 3.5rem !important;
+    line-height: 4rem !important;
+    margin-bottom: 3rem;
+}
+
+/* 카드 내부 텍스트 크기 증가 */
+.feature-card h3 {
+    font-size: 2rem !important;
+    line-height: 2.5rem !important;
+    margin-bottom: 1.5rem;
+}
+
+.feature-card p {
+    font-size: 1.25rem !important;
+    line-height: 1.75rem !important;
+}
+
+/* 리스트 아이템 텍스트 크기 증가 */
+.feature-card li {
+    font-size: 1.25rem !important;
+    line-height: 1.75rem !important;
+    margin-bottom: 1rem;
+}
+
+/* 텍스트 호버 효과 */
+.hover-effect {
+    transition: all 0.3s ease;
+}
+
+.hover-effect:hover {
+    transform: scale(1.1);
+    color: var(--primary-color);
+}
+
+/* 가격 표시 색상 수정 */
+.text-blue-500 {
+    color: var(--primary-color) !important;
+}
+
+/* 공장 배경 애니메이션 효과 수정 */
+.factory-bg {
+    position: relative;
+    overflow: hidden;
+}
+
+/* 톱니바퀴 애니메이션 수정 */
+.hero-gear {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3c-.46-4.17-3.77-7.48-7.94-7.94V1h-2v2.06C6.83 3.52 3.52 6.83 3.06 11H1v2h2.06c.46 4.17 3.77 7.48 7.94 7.94V23h2v-2.06c4.17-.46 7.48-3.77 7.94-7.94H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z'/%3E%3C/svg%3E");
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3c-.46-4.17-3.77-7.48-7.94-7.94V1h-2v2.06C6.83 3.52 3.52 6.83 3.06 11H1v2h2.06c.46 4.17 3.77 7.48 7.94 7.94V23h2v-2.06c4.17-.46 7.48-3.77 7.94-7.94H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z'/%3E%3C/svg%3E");
+    animation: fastGearRotate 3s linear infinite;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.hero-gear-small {
+    width: 25px;
+    height: 25px;
+    animation: fastGearRotate 2s linear infinite reverse;
+}
+
+/* 컨베이어 벨트 효과 제거 */
+.conveyor-line {
+    display: none;
+}
+
+/* 톱니바퀴 회전 애니메이션 */
+@keyframes gearRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 타이핑 효과 */
+.typing-text {
+    border-right: 2px solid var(--primary-color);
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--primary-color) }
+}
+
+/* 펄스 효과 */
+.pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .5;
+    }
+}
+
+/* 카운터 애니메이션 */
+.counter {
+    transition: all 2s ease-out;
+}
+
+/* 배경 그라데이션 움직임 애니메이션 */
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+/* 추가: 부유하는 파티클 효과 */
+.hero-pattern::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(2px 2px at 40px 60px, rgba(255, 255, 255, 0.1) 50%, transparent 50%),
+        radial-gradient(2px 2px at 20% 20%, rgba(255, 255, 255, 0.1) 50%, transparent 50%),
+        radial-gradient(2px 2px at 30% 70%, rgba(255, 255, 255, 0.1) 50%, transparent 50%),
+        radial-gradient(2px 2px at 70% 80%, rgba(255, 255, 255, 0.1) 50%, transparent 50%),
+        radial-gradient(2px 2px at 80% 10%, rgba(255, 255, 255, 0.1) 50%, transparent 50%);
+    background-size: 150px 150px;
+    animation: particleFloat 15s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-150px);
+    }
+}
+
+/* 빠른 톱니바퀴 애니메이션 */
+@keyframes fastGearRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 } 

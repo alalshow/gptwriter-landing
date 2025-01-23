@@ -3,39 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI 자동화 공장장 - 워드프레스 블로그 자동화 솔루션</title>
+    <title>AI 자동화 공장장 - GPT 워드프레스 공장</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
-
-    <!-- 스크롤 애니메이션 스크립트 추가 -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // 약간의 지연 시간을 추가하여 순차적 애니메이션 효과
-                        setTimeout(() => {
-                            entry.target.classList.add('visible');
-                        }, entry.target.dataset.delay || 0);
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            // 애니메이션 요소들에 지연 시간 추가
-            const fadeElements = document.querySelectorAll('.fade-up');
-            fadeElements.forEach((element, index) => {
-                element.dataset.delay = index * 150; // 각 요소마다 150ms 지연
-                observer.observe(element);
-            });
-        });
-    </script>
+    <script src="script.js" defer></script>
 </head>
 <body class="bg-black">
     <!-- Hero Section -->
@@ -46,11 +17,11 @@
                     AI 자동화 공장장
                 </h1>
                 <p class="text-2xl md:text-3xl text-blue-100 mb-12 fade-up">
-                    워드프레스 블로그 자동화 솔루션으로<br>
+                   GPT 워드프레스 공장으로<br>
                     한 달 이내 애드센스 승인받기
                 </p>
                 <div class="flex flex-col md:flex-row justify-center gap-4">
-                    <a href="#contact" class="btn-primary inline-block text-center">
+                    <a href="https://open.kakao.com/o/sqAplEke" target="_blank" class="btn-primary inline-block text-center">
                         무료로 시작하기
                     </a>
                 </div>
@@ -110,260 +81,104 @@
         </div>
     </section>
 
-    <!-- Features -->
-    <section class="py-20 bg-gray-900">
+    <!-- Features Section -->
+    <section class="py-20 bg-gray-900" id="features">
         <div class="container mx-auto px-4">
             <h2 class="text-5xl md:text-6xl font-bold text-center section-title gradient-text fade-up">
                 주요 기능
             </h2>
-            
             <div class="grid md:grid-cols-2 gap-12 max-w-7xl mx-auto">
-                <!-- Feature 1 -->
-                <div class="feature-card bg-gray-900 p-10 rounded-lg fade-up">
-                    <div class="flex gap-4 mb-6">
-                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3 class="text-3xl font-bold mb-6">키워드 관리</h3>
-                            <p class="text-xl mb-6">실시간 인기 검색어 수집 및 분석</p>
-                        </div>
-                    </div>
-                    <ul class="space-y-3 text-gray-400">
-                        <li class="flex items-start gap-2">
-                            <svg class="w-5 h-5 text-green-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>네이버/구글/다음 실시간 검색어 자동 수집</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <svg class="w-5 h-5 text-green-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>AI 기반 핵심 키워드 추출</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <svg class="w-5 h-5 text-green-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>키워드 경쟁강도 분석</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Feature 2 -->
-                <div class="feature-card bg-gray-900 p-10 rounded-lg fade-up">
-                    <div class="flex gap-4 mb-6">
-                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3 class="text-3xl font-bold mb-6">자동 포스팅</h3>
-                            <p class="text-xl mb-6">AI 기반 컨텐츠 자동 생성</p>
-                        </div>
-                    </div>
-                    <ul class="space-y-3 text-gray-400">
-                        <li class="flex items-start gap-2">
-                            <svg class="w-5 h-5 text-green-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>GPT/Gemini 기반 고품질 컨텐츠 생성</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <svg class="w-5 h-5 text-green-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>이미지 자동 생성 및 최적화</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <svg class="w-5 h-5 text-green-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>예약 발행 및 스케줄링</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Feature 3 -->
-                <div class="feature-card bg-gray-900 p-10 rounded-lg fade-up">
-                    <div class="flex gap-4 mb-6">
-                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3 class="text-3xl font-bold mb-6">SEO 최적화</h3>
-                            <p class="text-xl mb-6">검색엔진 최적화 자동화</p>
-                        </div>
-                    </div>
-                    <ul class="space-y-3 text-gray-400">
-                        <li class="flex items-start gap-2">
-                            <svg class="w-5 h-5 text-green-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Rank Math 플러그인 무료 제공</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <svg class="w-5 h-5 text-green-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>메타 데이터 자동 최적화</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <svg class="w-5 h-5 text-green-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>구글/네이버 자동 색인</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Feature 4 -->
-                <div class="feature-card bg-gray-900 p-10 rounded-lg fade-up">
-                    <div class="flex gap-4 mb-6">
-                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3 class="text-3xl font-bold mb-6">이미지 최적화</h3>
-                            <p class="text-xl mb-6">고품질 이미지 자동화</p>
-                        </div>
-                    </div>
-                    <ul class="space-y-3 text-gray-400">
-                        <li class="flex items-start gap-2">
-                            <svg class="w-5 h-5 text-green-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Pixabay 무제한 이미지 제공</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <svg class="w-5 h-5 text-green-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>이미지 자동 최적화</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <svg class="w-5 h-5 text-green-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>썸네일 자동 생성</span>
-                        </li>
-                    </ul>
-                </div>
+                <!-- 기능 카드는 JavaScript로 동적 생성 -->
             </div>
         </div>
     </section>
 
     <!-- Price Section -->
-    <section class="py-20 bg-gray-900" id="price">
+    <section class="pt-8 pb-20 bg-gray-900" id="price">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center section-title">가격 안내</h2>
-            <div class="max-w-lg mx-auto glass-effect rounded-lg shadow-xl overflow-hidden">
-                <div class="p-8 text-center">
-                    <h3 class="text-2xl font-bold mb-4">애드센스 승인 자동화 프로그램</h3>
-                    <div class="text-5xl font-bold text-blue-600 mb-4">무료</div>
-                    <p class="text-gray-400 mb-8">별도 비용 없이 모든 기능 제공</p>
-                    <ul class="text-left space-y-4 mb-8">
-                        <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>키워드 관리 및 분석</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>AI 컨텐츠 자동 생성</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>SEO 최적화</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>이미지 자동화</span>
-                        </li>
-                    </ul>
-                    <a href="#contact" class="btn-primary inline-block w-full">무료로 시작하기</a>
-                </div>
+            <h2 class="text-4xl font-bold text-center section-title mb-12">상품 안내</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <!-- 상품 카드는 JavaScript로 동적 생성 -->
             </div>
         </div>
     </section>
 
+    <!-- Live Activity Section -->
+    <section class="py-20 bg-gray-900" id="live-activity">
+        <div class="container mx-auto px-4">
+            <div class="max-w-5xl mx-auto text-center">
+                <h2 class="text-4xl font-bold gradient-text mb-8 fade-up">
+                    지금 이 순간에도
+                </h2>
+                <p class="text-2xl text-yellow-500 mb-12 fade-up">
+                    <span class="typing-text">누군가는 AI로 자동화된 수익을 만들어내고 있습니다</span>
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="glass-effect p-6 rounded-lg fade-up">
+                        <div class="text-4xl font-bold text-yellow-500 mb-2 counter" data-target="2000">0</div>
+                        <p class="text-gray-400">오늘 생성된 포스팅</p>
+                    </div>
+                    <div class="glass-effect p-6 rounded-lg fade-up">
+                        <div class="text-4xl font-bold text-yellow-500 mb-2 counter" data-target="526789">0</div>
+                        <p class="text-gray-400">총 수익 (원)</p>
+                    </div>
+                    <div class="glass-effect p-6 rounded-lg fade-up">
+                        <div class="text-4xl font-bold text-yellow-500 mb-2 counter" data-target="42">0</div>
+                        <p class="text-gray-400">현재 활성 사용자</p>
+                    </div>
+                </div>
+
+                <div class="flex justify-center space-x-8 fade-up">
+                    <div class="activity-card glass-effect p-4 rounded-lg">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-3 h-3 bg-green-500 rounded-full pulse"></div>
+                            <span class="text-gray-400">실시간 포스팅 생성중...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- Contact Section -->
     <section class="py-20 bg-gray-900" id="contact">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center section-title">문의하기</h2>
             <div class="max-w-3xl mx-auto glass-effect rounded-lg shadow-xl p-8">
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-6">상담 문의</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-3">
-                                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold">이메일</h4>
-                                    <p class="text-gray-400">info@consolework.com</p>
-                                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">상담 문의</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                                </svg>
                             </div>
-                            <div class="flex items-center gap-3">
-                                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold">카카오톡</h4>
-                                    <p class="text-gray-400">@콘솔워크</p>
-                                </div>
+                            <div>
+                                <h4 class="font-bold">카카오톡 문의</h4>
+                                <a href="https://open.kakao.com/o/sqAplEke" target="_blank" class="text-blue-400 hover:text-blue-300">@AI자동화공장장</a>
                             </div>
                         </div>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold mb-6">빠른 문의</h3>
-                        <form class="space-y-4">
-                            <div>
-                                <label class="block text-gray-700 mb-2" for="name">이름</label>
-                                <input type="text" id="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="이름을 입력하세요">
-                            </div>
-                            <div>
-                                <label class="block text-gray-700 mb-2" for="email">이메일</label>
-                                <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="이메일을 입력하세요">
-                            </div>
-                            <div>
-                                <label class="block text-gray-700 mb-2" for="message">문의내용</label>
-                                <textarea id="message" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="문의내용을 입력하세요"></textarea>
-                            </div>
-                            <button type="submit" class="btn-primary w-full">문의하기</button>
-                        </form>
+                        <div class="text-center mt-8">
+                            <a href="https://open.kakao.com/o/sqAplEke" target="_blank" class="btn-primary inline-block px-8 py-3">
+                                카카오톡으로 문의하기
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
         <div class="container mx-auto px-4">
             <div class="text-center">
                 <h3 class="text-2xl font-bold mb-4">AI 자동화 공장장</h3>
-                <p class="text-gray-400 mb-6">워드프레스 블로그 자동화 솔루션</p>
+                <p class="text-gray-400 mb-6">GPT 워드프레스 공장</p>
                 <div class="flex justify-center space-x-4">
                     <a href="#" class="text-gray-400 hover:text-white transition-colors">
                         이용약관
@@ -376,7 +191,7 @@
                     <p>법인회사가 운영하는 책임감 있는 서비스</p>
                     <p>10년간의 노하우로 쌓아온 높은 신뢰도</p>
                 </div>
-                <p class="text-gray-500 mt-8">&copy; 2024 콘솔워크. All rights reserved.</p>
+                <p class="text-gray-500 mt-8">&copy; 2025 콘솔워크. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -387,124 +202,5 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
         </svg>
     </button>
-
-    <!-- 추가 스크립트 -->
-    <script>
-        // 스크롤 탑 버튼 기능
-        const scrollToTopButton = document.getElementById('scrollToTop');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollToTopButton.style.opacity = '1';
-            } else {
-                scrollToTopButton.style.opacity = '0';
-            }
-        });
-        
-        scrollToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // 폼 제출 이벤트
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // 폼 데이터 수집
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                message: document.getElementById('message').value
-            };
-            
-            // 여기에 폼 제출 로직 추가
-            console.log('Form submitted:', formData);
-            
-            // 폼 초기화
-            this.reset();
-            
-            // 제출 완료 메시지
-            alert('문의가 접수되었습니다. 빠른 시일 내에 답변 드리겠습니다.');
-        });
-
-        // 스무스 스크롤 구현
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // 카드 데이터 설정
-        const cardData = {
-            painPoints: [
-                {
-                    icon: 'M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4',
-                    title: '복잡한 설정',
-                    description: '워드프레스 설정이 너무 복잡하고 어려워요'
-                },
-                {
-                    icon: 'M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z',
-                    title: '연락 두절',
-                    description: '개발자와 연락이 안되서 난감해요'
-                },
-                {
-                    icon: 'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6',
-                    title: '효율적인 운영',
-                    description: 'SEO 최적화와 효율적인 운영이 필요해요'
-                }
-            ],
-            features: [
-                {
-                    icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2',
-                    title: '키워드 관리',
-                    subtitle: '실시간 인기 검색어 수집 및 분석',
-                    items: [
-                        '구글/다음/줌 실시간 검색어 자동 수집',
-                        'AI 기반 고품질 키워드 추천',
-                        '키워드 경쟁강도 분석'
-                    ]
-                },
-                {
-                    icon: 'M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z',
-                    title: '자동 포스팅',
-                    subtitle: 'AI 기반 컨텐츠 자동 생성',
-                    items: [
-                        'GPT/Gemini 기반 고품질 컨텐츠 생성',
-                        '이미지 자동 생성 및 최적화',
-                        '예약 발행 및 스케줄링'
-                    ]
-                },
-                {
-                    icon: 'M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11',
-                    title: 'SEO 최적화',
-                    subtitle: '검색엔진 최적화 자동화',
-                    items: [
-                        'Rank Math 플러그인 무료 제공',
-                        '메타 데이터 자동 최적화',
-                        '구글/네이버 자동 색인'
-                    ]
-                },
-                {
-                    icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z',
-                    title: '이미지 최적화',
-                    subtitle: '고품질 이미지 자동화',
-                    items: [
-                        'Pixabay 무제한 이미지 제공',
-                        '이미지 자동 최적화',
-                        '썸네일 자동 생성'
-                    ]
-                }
-            ]
-        };
-    </script>
 </body>
 </html>
