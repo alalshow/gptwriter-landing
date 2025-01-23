@@ -45,50 +45,45 @@ const cardData = {
     products: [
         {
             name: "베이직 패키지",
-            originalPrice: 660000,
+            originalPrice: 500000,
             discountRate: 25,
             period: "1년",
             features: [
                 "키워드 관리 및 분석",
                 "AI 컨텐츠 자동 생성",
-                "SEO 최적화",
                 "이미지 자동화",
-                "무제한 포스팅",
-                "기술 지원"
+                "하루 20개 포스팅"
             ],
-            highlight: "애드센스 승인까지 무료",
+            highlight: "합리적인 가격",
             recommended: false
         },
         {
             name: "프리미엄 패키지",
-            originalPrice: 990000,
+            originalPrice: 1100000,
             discountRate: 30,
-            period: "1년",
+            period: "평생",
             features: [
                 "베이직 패키지의 모든 기능",
-                "고급 AI 템플릿",
-                "우선 기술 지원",
-                "맞춤형 SEO 컨설팅",
-                "트래픽 분석",
-                "수익화 전략 컨설팅"
+                "무제한 포스팅",
+                "애드센스승인 기능",
+                "Rank Math 커스텀 플러그인",
+                "이미지 자동화",
             ],
-            highlight: "수익화까지 완벽 지원",
-            recommended: false
+            highlight: "합리적인 가격",
+            recommended: true
         },
         {
             name: "엔터프라이즈 패키지",
-            originalPrice: 1500000,
+            originalPrice: 2500000,
             discountRate: 35,
             period: "평생",
             features: [
                 "프리미엄 패키지의 모든 기능",
-                "전용 기술 매니저 배정",
+                "GPT기반 네이버블로그 발행",
+                "GPT기반 티스토리 발행",
                 "커스텀 AI 템플릿",
-                "전문가 1:1 컨설팅",
-                "트래픽/수익 분석 리포트",
-                "비즈니스 성장 전략 수립"
             ],
-            highlight: "비즈니스 성장까지 완벽 지원",
+            highlight: "애드센스 수익화의 끝판왕",
             recommended: false
         }
     ]
@@ -198,10 +193,18 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </li>
                             `).join('')}
                         </ul>
-                        <a href="https://open.kakao.com/o/sqAplEke" target="_blank" 
-                           class="btn-primary inline-block w-full text-center">
-                            시작하기
-                        </a>
+                        ${product.name === "엔터프라이즈 패키지" ? `
+                            <div class="relative">
+                                <button class="btn-primary inline-block w-full text-center opacity-50 cursor-not-allowed" disabled>
+                                    3월 1일 오픈 예정
+                                </button>
+                            </div>
+                        ` : `
+                            <a href="https://open.kakao.com/o/sqAplEke" target="_blank" 
+                               class="btn-primary inline-block w-full text-center">
+                                시작하기
+                            </a>
+                        `}
                     </div>
                 </div>
             `;
