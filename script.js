@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         </ul>
                         <a href="https://open.kakao.com/o/sqAplEke" target="_blank" 
                            class="btn-primary inline-block w-full text-center">
-                            무료로 시작하기
+                            시작하기
                         </a>
                     </div>
                 </div>
