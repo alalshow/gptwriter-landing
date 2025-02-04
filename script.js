@@ -67,30 +67,38 @@ const cardData = {
     products: [
         {
             name: "베이직 패키지",
-            originalPrice: 660000,
+            originalPrice: 440000,
             discountRate: 25,
             period: "1년",
+
             features: [
+                "워드프레스 자동발행",
+                "키워드 분석",
                 "키워드 조회",
                 "무제한 포스팅",
+                "프롬프트 커스터마이징",
                 "AI 컨텐츠 자동 생성",
-                "이미지 자동화",
+                "픽사베이 무료 이미지 추가",
+                "참고링크 추가",
             ],
             highlight: "합리적인 가격",
             recommended: false
         },
         {
             name: "프리미엄 패키지",
-            originalPrice: 1140000,
+            originalPrice: 850000,
             discountRate: 30,
             period: "평생",
             features: [
-                "베이직 패키지의 모든 기능",
-                "키워드 조회",
+                "워드프레스 자동발행",
+                "티스토리 자동발행",
                 "키워드 분석",
+                "키워드 조회",
                 "무제한 포스팅",
+                "프롬프트 커스터마이징",
                 "AI 컨텐츠 자동 생성",
-                "이미지 자동화",
+                "픽사베이 무료 이미지 추가",
+                "참고링크 추가",
                 "애드센스 승인",
                 "Rank Math 커스텀 플러그인",
             ],
@@ -99,14 +107,22 @@ const cardData = {
         },
         {
             name: "엔터프라이즈 패키지",
-            originalPrice: 2500000,
-            discountRate: 35,
+            originalPrice: 1400000,
+            discountRate: 30,
             period: "평생",
             features: [
-                "프리미엄 패키지의 모든 기능",
-                "GPT 기반 네이버블로그 발행",
-                "GPT 기반 티스토리 발행",
-                "커스텀 AI 템플릿",
+                "워드프레스 자동발행",
+                "네이버 블로그 자동발행",
+                "티스토리 자동발행",
+                "키워드 분석",
+                "키워드 조회",
+                "무제한 포스팅",
+                "프롬프트 커스터마이징",
+                "AI 컨텐츠 자동 생성",
+                "픽사베이 무료 이미지 추가",
+                "참고링크 추가",
+                "애드센스 승인",
+                "Rank Math 커스텀 플러그인",
             ],
             highlight: "애드센스 수익화의 끝판왕",
             recommended: false
@@ -222,18 +238,10 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </li>
                             `).join('')}
                         </ul>
-                        ${product.name === "엔터프라이즈 패키지" ? `
-                            <div class="relative">
-                                <button class="btn-primary inline-block w-full text-center opacity-50 cursor-not-allowed" disabled>
-                                    3월 1일 오픈 예정
-                                </button>
-                            </div>
-                        ` : `
-                            <a href="https://open.kakao.com/o/sqAplEke" target="_blank" 
-                               class="btn-primary inline-block w-full text-center">
-                                시작하기
-                            </a>
-                        `}
+                        <a href="https://open.kakao.com/o/sqAplEke" target="_blank" 
+                           class="btn-primary inline-block w-full text-center">
+                            시작하기
+                        </a>
                     </div>
                 </div>
             `;
