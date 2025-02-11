@@ -69,7 +69,7 @@ const cardData = {
             name: "베이직 패키지",
             originalPrice: 440000,
             discountRate: 25,
-            period: "1년",
+            period: "평생",
 
             features: [
                 "워드프레스 자동발행",
@@ -86,7 +86,7 @@ const cardData = {
         },
         {
             name: "프리미엄 패키지",
-            originalPrice: 850000,
+            originalPrice: 950000,
             discountRate: 30,
             period: "평생",
             features: [
@@ -99,7 +99,6 @@ const cardData = {
                 "AI 컨텐츠 자동 생성",
                 "픽사베이 무료 이미지 추가",
                 "참고링크 추가",
-                "애드센스 승인",
                 "Rank Math 커스텀 플러그인",
             ],
             highlight: "프리미엄 콘텐츠",
@@ -116,12 +115,13 @@ const cardData = {
                 "티스토리 자동발행",
                 "키워드 분석",
                 "키워드 조회",
+                "본문 검색",
+                "애드센스 승인",
                 "무제한 포스팅",
                 "프롬프트 커스터마이징",
                 "AI 컨텐츠 자동 생성",
                 "픽사베이 무료 이미지 추가",
                 "참고링크 추가",
-                "애드센스 승인",
                 "Rank Math 커스텀 플러그인",
             ],
             highlight: "애드센스 수익화의 끝판왕",
