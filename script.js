@@ -240,7 +240,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </li>
                             `).join('')}
                         </ul>
-                        <a href="https://open.kakao.com/o/sqAplEke" target="_blank" 
+                        <a href="https://open.kakao.com/o/seWPrXbh" target="_blank" 
                            class="btn-primary inline-block w-full text-center">
                             시작하기
                         </a>
