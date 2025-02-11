@@ -544,4 +544,25 @@ p {
     .detail-image {
         padding: 5px;
     }
+}
+
+/* 이용약관/개인정보처리방침 페이지 공통 스타일 */
+.terms-container {
+    margin-top: 0 !important;
+}
+
+.terms-section {
+    margin-bottom: 0 !important;
+}
+
+.terms-section .glass-effect {
+    padding: 0.5rem !important;
+    margin-bottom: 0 !important;
+    border-radius: 0 !important;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.terms-section h2 {
+    margin-bottom: 0.25rem !important;
+    font-size: 1.25rem !important;
 } 
