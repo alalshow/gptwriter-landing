@@ -66,7 +66,7 @@ const cardData = {
     ],
     products: [
         {
-            name: "베이직 패키지",
+            name: "스탠다드 패키지",
             originalPrice: 440000,
             discountRate: 25,
             period: "평생",
@@ -86,7 +86,7 @@ const cardData = {
             recommended: false
         },
         {
-            name: "프리미엄 패키지",
+            name: "디럭스 패키지",
             originalPrice: 950000,
             discountRate: 30,
             period: "평생",
@@ -107,7 +107,7 @@ const cardData = {
             recommended: true
         },
         {
-            name: "엔터프라이즈 패키지",
+            name: "프리미엄 패키지",
             originalPrice: 1400000,
             discountRate: 30,
             period: "평생",
