@@ -67,8 +67,8 @@ const cardData = {
     products: [
         {
             name: "스탠다드 패키지",
-            originalPrice: 440000,
-            discountRate: 25,
+            originalPrice: 785714,
+            discountRate: 30,
             period: "평생",
 
             features: [
@@ -81,18 +81,19 @@ const cardData = {
                 "AI 컨텐츠 자동 생성",
                 "픽사베이 무료 이미지 추가",
                 "참고링크 추가",
+                "Rank Math 커스텀 플러그인",
             ],
             highlight: "합리적인 가격",
             recommended: false
         },
         {
             name: "디럭스 패키지",
-            originalPrice: 950000,
+            originalPrice: 1414285,
             discountRate: 30,
             period: "평생",
             features: [
                 "워드프레스 자동발행",
-                "티스토리 자동발행",
+                "네이버 블로그 자동발행",
                 "키워드 분석",
                 "키워드 조회",
                 "본문 검색(**후기 작성 시 제공기능)",
@@ -108,13 +109,13 @@ const cardData = {
         },
         {
             name: "프리미엄 패키지",
-            originalPrice: 1400000,
+            originalPrice: 1857142,
             discountRate: 30,
             period: "평생",
             features: [
                 "워드프레스 자동발행",
-                "네이버 블로그 자동발행",
                 "티스토리 자동발행",
+                "네이버 블로그 자동발행",
                 "키워드 분석",
                 "키워드 조회",
                 "본문 검색(**후기 작성 시 제공기능)",
@@ -134,7 +135,8 @@ const cardData = {
 
 // 유틸리티 함수
 function calculateDiscountedPrice(originalPrice, discountRate) {
-    return originalPrice * (1 - discountRate / 100);
+    const discounted = originalPrice * (1 - discountRate / 100);
+    return Math.ceil(discounted / 10000) * 10000;  // 만원 단위로 올림
 }
 
 function formatPrice(price) {
