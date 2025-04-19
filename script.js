@@ -338,10 +338,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const heroSection = document.querySelector('.hero-pattern');
     if (heroSection) {
         const centerArea = {
-            top: '20%',
-            bottom: '60%',
-            left: '20%',
-            right: '80%'
+            top: 20,
+            bottom: 60,
+            left: 20,
+            right: 80
         };
 
         // 큰 톱니바퀴 10개 추가
@@ -349,42 +349,59 @@ document.addEventListener('DOMContentLoaded', function() {
             const gear = document.createElement('div');
             gear.className = 'hero-gear';
             
-            // 중앙 영역을 피해서 위치 설정
+            // 중앙 영역을 피해서 위치 설정 (5% ~ 95% 사이)
             let left, top;
             do {
                 left = Math.random() * 90 + 5;
                 top = Math.random() * 90 + 5;
             } while (
-                left > parseInt(centerArea.left) && 
-                left < parseInt(centerArea.right) && 
-                top > parseInt(centerArea.top) && 
-                top < parseInt(centerArea.bottom)
+                left > centerArea.left && 
+                left < centerArea.right && 
+                top > centerArea.top && 
+                top < centerArea.bottom
             );
             
+            // transform 사용을 위해 중앙을 기준으로 위치 설정
             gear.style.left = `${left}%`;
             gear.style.top = `${top}%`;
             heroSection.appendChild(gear);
 
-            // 작은 톱니바퀴 추가
-            const smallGear = document.createElement('div');
-            smallGear.className = 'hero-gear hero-gear-small';
-            const offsetX = (Math.random() - 0.5) * 60;
-            const offsetY = (Math.random() - 0.5) * 60;
-            
-            // 작은 톱니바퀴도 중앙 영역을 피하도록 확인
-            const smallLeft = left + (offsetX / heroSection.offsetWidth * 100);
-            const smallTop = top + (offsetY / heroSection.offsetHeight * 100);
-            
-            if (!(smallLeft > parseInt(centerArea.left) && 
-                smallLeft < parseInt(centerArea.right) && 
-                smallTop > parseInt(centerArea.top) && 
-                smallTop < parseInt(centerArea.bottom))) {
-                smallGear.style.left = `calc(${gear.style.left} + ${offsetX}px)`;
-                smallGear.style.top = `calc(${gear.style.top} + ${offsetY}px)`;
-                heroSection.appendChild(smallGear);
+            // 작은 톱니바퀴 추가 - 무작위 위치에 배치하고 viewport 바깥으로 나가지 않도록 함
+            if (Math.random() > 0.3) { // 70% 확률로만 작은 톱니바퀴 추가
+                const smallGear = document.createElement('div');
+                smallGear.className = 'hero-gear hero-gear-small';
+                
+                // 안전한 범위 내에서 작은 톱니바퀴 위치 설정 (10% ~ 90%)
+                const smallLeft = Math.random() * 80 + 10;
+                const smallTop = Math.random() * 80 + 10;
+                
+                // 중앙 영역 피하기
+                if (!(smallLeft > centerArea.left && 
+                    smallLeft < centerArea.right && 
+                    smallTop > centerArea.top && 
+                    smallTop < centerArea.bottom)) {
+                    smallGear.style.left = `${smallLeft}%`;
+                    smallGear.style.top = `${smallTop}%`;
+                    heroSection.appendChild(smallGear);
+                }
             }
         }
     }
+
+    // 애니메이션 효과
+    initFadeEffects();
+    
+    // 스크롤 탑 버튼
+    initScrollToTop();
+    
+    // 카운터 애니메이션
+    initCounters();
+    
+    // 라이브 활동 업데이트
+    initLiveActivity();
+    
+    // 메인 페이지 FAQ 미리보기 섹션 클릭 이벤트
+    initFaqPreview();
 });
 
 // 스크롤 탑 버튼 기능
@@ -417,4 +434,129 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             });
         }
     });
-}); 
+});
+
+// 페이드 애니메이션 효과
+function initFadeEffects() {
+    const fadeElements = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    fadeElements.forEach(el => {
+        observer.observe(el);
+    });
+}
+
+// 카운터 애니메이션
+function initCounters() {
+    const counters = document.querySelectorAll('.counter');
+    
+    counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-base-value'));
+        const type = counter.getAttribute('data-type');
+        let increment = 1;
+        
+        if (type === 'revenue') {
+            increment = 10000;
+        } else if (type === 'posts') {
+            increment = 10;
+        }
+        
+        const duration = 2000; // ms
+        const steps = 50;
+        const stepValue = Math.ceil(target / steps);
+        let current = 0;
+        
+        const timer = setInterval(() => {
+            current += stepValue;
+            
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            
+            if (type === 'revenue') {
+                counter.textContent = current.toLocaleString();
+            } else {
+                counter.textContent = current;
+            }
+        }, duration / steps);
+    });
+}
+
+// 라이브 활동 업데이트
+function initLiveActivity() {
+    const activityCard = document.querySelector('.activity-card');
+    if (!activityCard) return;
+    
+    const activities = [
+        '사용자가 새 포스팅을 생성했습니다',
+        '수익이 발생했습니다 (₩3,500)',
+        '새로운 사용자가 등록했습니다',
+        '방문자가 증가했습니다 (+28)',
+        '포스팅이 완료되었습니다'
+    ];
+    
+    setInterval(() => {
+        const randomActivity = activities[Math.floor(Math.random() * activities.length)];
+        const activityElement = activityCard.querySelector('span');
+        
+        if (activityElement) {
+            activityElement.textContent = randomActivity;
+            
+            // 깜빡임 효과
+            activityElement.style.opacity = '0';
+            setTimeout(() => {
+                activityElement.style.opacity = '1';
+            }, 300);
+        }
+    }, 5000);
+}
+
+// FAQ 미리보기 섹션 클릭 이벤트
+function initFaqPreview() {
+    const faqItems = document.querySelectorAll('#faq-preview .faq-item');
+    if (faqItems.length === 0) return;
+    
+    faqItems.forEach(item => {
+        item.addEventListener('click', () => {
+            window.location.href = 'faq.html';
+        });
+    });
+}
+
+// FAQ 페이지 기능 (faq.html에서 사용)
+if (window.location.pathname.includes('faq.html')) {
+    document.addEventListener('DOMContentLoaded', function() {
+        // FAQ 탭 필터링 기능
+        const faqTabs = document.querySelectorAll('.faq-tab');
+        faqTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // 탭 활성화 상태 변경
+                faqTabs.forEach(t => {
+                    t.classList.remove('active', 'bg-yellow-600');
+                    t.classList.add('bg-gray-700');
+                });
+                tab.classList.add('active', 'bg-yellow-600');
+                tab.classList.remove('bg-gray-700');
+
+                // 카테고리 필터링
+                const category = tab.getAttribute('data-category');
+                const faqItems = document.querySelectorAll('.faq-item');
+                faqItems.forEach(item => {
+                    if (category === 'all' || item.getAttribute('data-category') === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+} 
