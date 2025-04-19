@@ -20,7 +20,7 @@ body {
 }
 
 .container {
-    max-width: 1280px;
+    max-width: 1080px !important;
 }
 
 .gradient-bg {
@@ -93,7 +93,7 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid rgba(255, 215, 0, 0.2);
     background-color: #1a1a1a;
-    padding: 1.5rem !important;
+    padding: 1rem;
 }
 
 .feature-card:hover {
@@ -151,7 +151,7 @@ body {
 .section-title {
     position: relative;
     padding-bottom: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3.5rem;
     color: #ffffff;
     font-size: 2.6rem !important;
     line-height: 3rem !important;
@@ -284,7 +284,7 @@ p {
 .section-title {
     font-size: 2.6rem !important;
     line-height: 3rem !important;
-    margin-bottom: 2rem;
+    margin-bottom: 3.5rem;
 }
 
 /* 카드 내부 텍스트 크기 증가 */
@@ -357,7 +357,7 @@ p {
 .section-title {
     font-size: 2.6rem !important;
     line-height: 3rem !important;
-    margin-bottom: 2rem;
+    margin-bottom: 3.5rem;
 }
 
 /* 카드 내부 텍스트 크기 증가 */
@@ -746,7 +746,7 @@ body {
 
 .section-title {
     position: relative;
-    margin-bottom: 60px;
+    margin-bottom: 3.5rem;
 }
 
 .section-title::after {
@@ -871,4 +871,67 @@ body {
     overflow-x: hidden;
     width: 100%;
     position: relative;
+}
+
+/* 레이아웃 크기 조정 스타일 */
+.section-padding {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.hero-section {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    min-height: 80vh;
+}
+
+h1.main-title {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.feature-grid {
+    gap: 1rem;
+}
+
+.youtube-container {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.compact-section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.btn-compact {
+    padding: 0.5rem 1rem;
+}
+
+.section-title {
+    margin-bottom: 3.5rem;
+    font-size: 2rem !important;
+    line-height: 2.5rem !important;
+}
+
+/* 응답형 텍스트 크기 조정 */
+@media (max-width: 768px) {
+    h1.main-title {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.25rem;
+    }
+    
+    .section-title {
+        font-size: 1.75rem !important;
+        line-height: 2.25rem !important;
+    }
 } 
