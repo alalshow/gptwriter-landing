@@ -66,11 +66,10 @@ const cardData = {
     ],
     products: [
         {
-            name: "스탠다드 패키지",
-            originalPrice: 785714,
-            discountRate: 30,
+            name: "워프",
+            originalPrice: 770000,
+            discountRate: 0,
             period: "평생",
-
             features: [
                 "워드프레스 자동발행",
                 "키워드 분석",
@@ -87,9 +86,9 @@ const cardData = {
             recommended: false
         },
         {
-            name: "디럭스 패키지",
-            originalPrice: 1414285,
-            discountRate: 30,
+            name: "워프+N사",
+            originalPrice: 1200000,
+            discountRate: 0,
             period: "평생",
             features: [
                 "워드프레스 자동발행",
@@ -108,9 +107,9 @@ const cardData = {
             recommended: true
         },
         {
-            name: "프리미엄 패키지",
-            originalPrice: 1857142,
-            discountRate: 30,
+            name: "워프+N사+티스",
+            originalPrice: 1400000,
+            discountRate: 0,
             period: "평생",
             features: [
                 "워드프레스 자동발행",
@@ -211,21 +210,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if (priceContainer) {
         priceContainer.innerHTML = '';
         cardData.products.forEach(product => {
-            const discountedPrice = calculateDiscountedPrice(product.originalPrice, product.discountRate);
             const card = `
                 <div class="glass-effect rounded-lg shadow-xl overflow-hidden ${product.recommended ? 'border-2 border-yellow-500' : ''}">
                     <div class="p-8">
                         ${product.recommended ? '<div class="text-yellow-500 font-bold mb-4">추천 패키지</div>' : ''}
                         <h3 class="text-2xl font-bold mb-4">${product.name}</h3>
                         <div class="mb-8">
-                            <div class="flex items-center gap-2 mb-2">
-                                <span class="text-gray-400 line-through text-lg">₩${formatPrice(product.originalPrice)}</span>
-                                <span class="bg-red-500 text-white px-2 py-1 rounded-full text-sm">
-                                    ${product.discountRate}% OFF
-                                </span>
-                            </div>
                             <div class="text-5xl font-bold text-yellow-500 mb-2">
-                                ₩${formatPrice(discountedPrice)}
+                                ₩${formatPrice(product.originalPrice)}
                             </div>
                             <div class="text-gray-400">${product.period}</div>
                         </div>
